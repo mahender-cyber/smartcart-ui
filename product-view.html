@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #fff;
+      }
+
+      .product-image {
+        width: 100%;
+        object-fit: contain;
+      }
+
+      @media (min-width: 768px) {
+        .product-image {
+          height: 320px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .product-image {
+          height: 420px;
+        }
+      }
+
+      .product-name {
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .product-price {
+        font-weight: bold;
+        font-size: 22px;
+        margin-top: 10px;
+      }
+
+      .para {
+        color: #000;
+        margin-top: 10px;
+      }
+
+      .quantity-box {
+        display: flex;
+        align-items: center;
+        margin: 20px 0px;
+      }
+
+      .minus,
+      .plus {
+        width: 40px;
+        height: 40px;
+        border: none;
+        font-size: 20px;
+        background-color: #e9ecef;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .one {
+        font-size: 20px;
+        margin: 0px 15px;
+      }
+
+      .add-cart-btn {
+        width: 100%;
+        border-radius: 8px;
+        font-weight: bold;
+        margin-top: 12px;
+      }
+
+      .heading {
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .card {
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        position: relative;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.6s ease forwards;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 0 15px rgba(13, 110, 253, 0.5);
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .product-image1 {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .classic {
+        font-size: 15px;
+        font-weight: bold;
+      }
+
+      .paraa {
+        font-weight: bold;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <div class="row align-items-center product-card mb-5">
+        <div class="col-12 col-md-6 text-center">
+          <img
+            src="https://media.istockphoto.com/id/471712705/photo/watch.jpg?s=612x612&w=0&k=20&c=eeoH1sW3uFuTNeW64kSpEXyNsq3WpkDTyDrPAmcIYIg="
+            class="product-image"
+            alt="Luxury Ceramic Watch"
+            id="imgId"
+          />
+        </div>
+        <div class="col-12 col-md-6">
+          <h1 class="product-name">Luxury Ceramic Watch Midnight Edition</h1>
+          <p class="product-price">$1,250.00</p>
+          <p class="para">
+            Exquisite craftsmanship with scratch-resistant ceramic, automatic
+            movement, and a sapphire crystal face. A timeless statement piece.
+          </p>
+
+          <div class="quantity-box mb-3">
+            <button class="minus" onclick="minus()">-</button>
+            <span class="one" id="one">0</span>
+            <button class="plus" onclick="plus()" id="pluss">+</button>
+          </div>
+
+          <button class="btn btn-primary add-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <h2 class="heading mb-4">Similar Products</h2>
+      <div class="row">
+        <div class="col-6 col-md-3 col-lg-2 mb-4">
+          <div class="card text-center p-2">
+            <img
+              src="https://res.cloudinary.com/djfbxoool/image/upload/v1769068052/paul-cuoco-CO2vOhPqlrM-unsplash_strcqp.jpg"
+              class="product-image1"
+            />
+            <h3 class="classic">Classic Leather Watch</h3>
+            <p class="paraa">$1,250.00</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-4">
+          <div class="card text-center p-2">
+            <img
+              src="https://res.cloudinary.com/djfbxoool/image/upload/v1769068056/jonathan-simcoe-RHRKWbrcDDc-unsplash_pc0k1p.jpg"
+              class="product-image1"
+            />
+            <h3 class="classic">Silver Chronograph</h3>
+            <p class="paraa">$1,250.00</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-4">
+          <div class="card text-center p-2">
+            <img
+              src="https://images.unsplash.com/photo-1609835563715-404c147de519?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2hpdGUlMjBiYWNrZ3JvdW5kJTIwd2F0Y2h8ZW58MHwwfDB8fHww"
+              class="product-image1"
+            />
+            <h3 class="classic">Minimalist Gold Watch</h3>
+            <p class="paraa">$1,250.00</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-4">
+          <div class="card text-center p-2">
+            <img
+              src="https://images.unsplash.com/photo-1594619273130-2eddf0503a5a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2hpdGUlMjBiYWNrZ3JvdW5kJTIwd2F0Y2h8ZW58MHwwfDB8fHww"
+              class="product-image1"
+            />
+            <h3 class="classic">Smart Watch Elite</h3>
+            <p class="paraa">$1,250.00</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-4">
+          <div class="card text-center p-2">
+            <img
+              src="https://res.cloudinary.com/djfbxoool/image/upload/v1769068064/klickors-moe-1CjiCJgHOOY-unsplash_vdvjdm.jpg"
+              class="product-image1"
+            />
+            <h3 class="classic">Smart Watch Elite</h3>
+            <p class="paraa">$1,250.00</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2 mb-4">
+          <div class="card text-center p-2">
+            <img
+              src="https://images.unsplash.com/photo-1594619231897-7609cd81cdbe?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2hpdGUlMjBiYWNrZ3JvdW5kJTIwd2F0Y2h8ZW58MHwwfDB8fHww"
+              class="product-image1"
+            />
+            <h3 class="classic">Smart Watch Elite</h3>
+            <p class="paraa">$1,250.00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

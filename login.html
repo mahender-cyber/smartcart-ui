@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+      .card {
+        padding: 30px;
+        width: 400px;
+        border: none;
+        border-radius: 10px;
+        flex-shrink: 0;
+      }
+
+      @media (min-width: 767px) {
+        .card {
+          background: linear-gradient(to bottom, #ffd480, #b3b3b3);
+          box-shadow: 0px 0px 13px -1px #595959;
+          padding: 30px;
+          width: 500px;
+          border-radius: 10px;
+        }
+      }
+
+      header {
+        text-align: center;
+        font-family: "Roboto";
+      }
+
+      .welcome-emoji {
+        height: 60px;
+        color: #cc9900;
+        margin-bottom: 20px;
+      }
+
+      .Welcome-text {
+        font-size: 25px;
+        color: #55552b;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+
+      .button-card {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .button {
+        margin: 15px;
+        border-radius: 5px;
+        padding: 4px;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .input-card {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .form-control {
+        border-radius: 7px;
+      }
+
+      @media (min-width: 767px) {
+        .card {
+          width: 500px;
+          box-shadow: none;
+          border: none;
+        }
+      }
+
+      p {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="container">
+      <div class="row">
+        <section class="col-12 col-sm-8 col-md-6 col-lg-4">
+          <div class="card">
+            <header>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-bag-heart-fill welcome-emoji"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"
+                />
+              </svg>
+              <h1 class="Welcome-text">Create an Account</h1>
+            </header>
+            <div class="input-card">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Full Name"
+                id="fullname"
+              />
+
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email Address"
+                id
+              />
+
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                id="password"
+              />
+
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Confirm Password"
+                id="confirmPassword"
+              />
+            </div>
+            <a href="https://mahiindex86.ccbp.tech/">
+              <div class="button-card">
+                <a href="index.html" class="btn btn-primary btn-block">
+                  Sign Up</a>
+                </button>
+              </div>
+            </a>
+
+            <p>Already have an account? <a href="#">Login</a></p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

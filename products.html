@@ -1,0 +1,327 @@
+<!doctype html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px;
+      }
+
+      .search-bar input {
+        flex: 1;
+        padding: 12px 15px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+        outline: none;
+      }
+
+      .filter-btn {
+        width: 45px;
+        height: 45px;
+        border-radius: 10px;
+        border: none;
+        background-color: #0d6efd;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px;
+      }
+
+      .search-bar input {
+        flex: 1;
+        padding: 12px 15px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+        outline: none;
+      }
+
+      .filter-btn {
+        width: 45px;
+        height: 45px;
+        border-radius: 10px;
+        border: none;
+        background-color: #0d6efd;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .product-card {
+        box-shadow: 0px 0px 5px #999595;
+        padding: 8px;
+        border-radius: 8px;
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        position: relative;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.6s ease forwards;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .product-card:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 0 15px rgba(13, 110, 253, 0.5);
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .product-image {
+        background: #e5e3e3;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .product-image img {
+        height: 60px;
+        margin: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .product-card:hover .product-image img {
+        transform: scale(1.15);
+      }
+
+      h5 {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      p {
+        font-weight: bold;
+      }
+
+      .add-to-cart-btn {
+        width: 100%;
+        transition: transform 0.2s ease;
+      }
+
+      .add-to-cart-btn:hover {
+        transform: scale(1.01);
+      }
+
+      .col-6,
+      .col-md-4,
+      .col-lg-3 {
+        margin-bottom: 20px;
+      }
+
+      .img {
+        height: 60px;
+        margin: 10px;
+      }
+
+      .add-to-cart-btn {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search" />
+      <button class="filter-btn">
+        <span>☰</span>
+      </button>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1769056916/school-bag_cgv73k.png"
+                class="img"
+                alt="Coffee Mug"
+              />
+            </div>
+            <h5>Coffee Mug</h5>
+            <p>$19.99</p>
+            <div>
+              <a href="cart.html" class="btn btn-primary add-to-cart-btn">
+                Add to Cart
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1769056916/headphones_1_cmcdvu.png"
+                class="img"
+                alt="Wireless Headphones"
+              />
+            </div>
+            <h5>Wireless Headphones</h5>
+            <p>$79.99</p>
+            <div>
+              <a href="cart.html" class="btn btn-primary add-to-cart-btn">
+                Add to Cart
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1769056916/login_avp89o.png"
+                class="img"
+                alt="Desktop Computer Setup"
+              />
+            </div>
+            <h5>Desktop Computer Setup</h5>
+            <p>$19.99</p>
+            <div>
+              <a href="cart.html" class="btn btn-primary add-to-cart-btn">
+                Add to Cart
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1769056915/keyboard-and-mouse_ptulvq.png"
+                class="img"
+                alt="Gaming Keyboard & Mouse"
+              />
+            </div>
+            <h5>Gaming Keyboard & Mouse</h5>
+            <p>$19.99</p>
+            <div>
+              <a href="cart.html" class="btn btn-primary add-to-cart-btn">
+                Add to Cart
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1769056915/wristwatch_dd7zej.png"
+                class="img"
+                alt="Smart Wrist Watch"
+              />
+            </div>
+            <h5>Smart Wrist Watch</h5>
+            <p>$19.99</p>
+            <div>
+              <a href="cart.html" class="btn btn-primary add-to-cart-btn">
+                Add to Cart
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/17206/17206283.png"
+                class="img"
+                alt="Running Shoes"
+              />
+            </div>
+            <h5>Running Shoes</h5>
+            <p>$49.99</p>
+            <div>
+              <a href="cart.html" class="btn btn-primary add-to-cart-btn">
+                Add to Cart
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/2777/2777903.png"
+                class="img"
+                alt="Leather Belt"
+              />
+            </div>
+            <h5>Leather Belt</h5>
+            <p>$14.99</p>
+            <div>
+              <a href="cart.html" class="btn btn-primary add-to-cart-btn">
+                Add to Cart
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/8118/8118961.png"
+                class="img"
+                alt="Water Bottle"
+              />
+            </div>
+            <h5>Water Bottle</h5>
+            <p>$19.99</p>
+            <div>
+              <a href="cart.html" class="btn btn-primary add-to-cart-btn">
+                Add to Cart
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

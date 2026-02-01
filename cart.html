@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      body {
+        font-family: Roboto, sans-serif;
+        background: #f5f7fa;
+      }
+
+      .cart {
+        background: white;
+        padding: 16px;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .cart2 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      .product-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+      }
+
+      .product-info {
+        flex: 1;
+        margin-left: 12px;
+      }
+
+      .btnn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btnn button {
+        width: 32px;
+        height: 32px;
+        border: none;
+        border-radius: 6px;
+        background: #ddd;
+      }
+
+      #primary {
+        background-color: blue;
+        color: white;
+      }
+
+      .checkout-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 16px;
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-price {
+        font-family: "Roboto";
+        font-weight: bold;
+      }
+
+      .total-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+
+      .total-amount {
+        font-weight: bold;
+      }
+
+      .checkout-btn {
+        width: 100%;
+        padding: 14px;
+        background: #0d5db8;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12">
+          <div class="cart">
+            <div class="cart2">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1747290990/cld-sample-5.jpg"
+                class="product-img"
+              />
+              <div class="product-info">
+                <h1>Men's Running Shoes - Blue</h1>
+                <p class="product-price">$59.99</p>
+              </div>
+              <div class="btnn">
+                <button>-</button>
+                <span>1</span>
+                <button id="primary">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 mt-3">
+          <div class="cart">
+            <div class="cart2">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1769068064/klickors-moe-1CjiCJgHOOY-unsplash_vdvjdm.jpg"
+                class="product-img"
+              />
+              <div class="product-info">
+                <h1>Men's Running Shoes - Blue</h1>
+                <p class="product-price">$19.80</p>
+              </div>
+              <div class="btnn">
+                <button>-</button>
+                <span>1</span>
+                <button id="primary">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="checkout-bar">
+      <div class="total-row">
+        <p>Total Price</p>
+        <p class="total-amount">$10.90</p>
+      </div>
+      <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+    </div>
+  </body>
+</html>

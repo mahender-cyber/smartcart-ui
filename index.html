@@ -1,0 +1,329 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar2 {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .user-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        object-fit: cover;
+        cursor: pointer;
+      }
+
+      .user-face {
+        font-size: 34px;
+        color: #333;
+        cursor: pointer;
+      }
+
+      .carousel-img {
+        height: 220px;
+        object-fit: cover;
+      }
+
+      .carousel-caption {
+        bottom: 20%;
+      }
+
+      .carousel-caption h2 {
+        font-weight: bold;
+      }
+
+      .carousel-caption {
+        background: rgba(0, 0, 0, 0.4);
+        padding: 15px;
+        border-radius: 12px;
+      }
+
+      @media (min-width: 768px) {
+        .carousel-img {
+          height: 380px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .carousel-img {
+          height: 500px;
+        }
+      }
+
+      .grocery_card {
+        border-radius: 12px;
+        padding: 18px;
+        background-size: cover;
+        box-shadow: 0px 0px 8px #cce6ff;
+        height: 180px;
+        position: relative;
+        opacity: 0;
+        transform: translateY(-10px);
+        animation: fadeUp 0.6s ease forwards;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        object-fit: cover;
+        align-items: center;
+      }
+
+      .grocery_card:hover {
+        transform: translateY(-6px) scale(1.08);
+        box-shadow: 0 0 15px rgba(13, 110, 253, 0.5);
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .imgg {
+        height: 80px;
+        padding: 6px;
+      }
+
+      .carts-container {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .cards-container {
+        margin-top: 30px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      h1 {
+        font-size: 20px;
+        margin-top: 20px;
+      }
+      .img-text {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar2 navbar-expand-lg bg-white shadow-sm px-3">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">SmartCart Local</a>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="cart.html">
+              <i class="bi bi-person-circle user-face"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <header class="m-3">
+        <h1>Hi, Friend!</h1>
+      </header>
+      <div id="offerCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#offerCarousel"
+            data-bs-slide-to="0"
+            class="active"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#offerCarousel"
+            data-bs-slide-to="1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#offerCarousel"
+            data-bs-slide-to="2"
+          ></button>
+        </div>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+              class="d-block w-100 carousel-img"
+              alt="Summer Sale"
+            />
+            <div class="carousel-caption text-start">
+              <h2>SUMMER SALE</h2>
+              <p>Up to 50% Off on Selected Items</p>
+              <button class="btn btn-warning">Shop Now</button>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+              class="d-block w-100 carousel-img"
+              alt="Buy More Save More"
+            />
+            <div class="carousel-caption text-start">
+              <h2>BUY MORE, SAVE MORE</h2>
+              <p>Extra discounts on bulk purchases</p>
+              <button class="btn btn-primary">View Deals</button>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/djfbxoool/image/upload/v1769015822/buymore_jws9dw.webp"
+              class="d-block w-100 carousel-img"
+              alt="Limited Time"
+            />
+            <div class="carousel-caption text-start">
+              <h2>LIMITED TIME OFFERS</h2>
+              <p>Hurry up! Offers ending soon</p>
+              <button class="btn btn-success">Explore</button>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#offerCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#offerCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+      <div class="container cards-container">
+        <section class="row">
+          <div class="carts-container">
+            <div class="grocery_card col-5 col-lg-3 col-xl-2">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1769017145/grocery-cart_bwzper.png"
+                class="imgg"
+              />
+              <h1 class="img-text mt-1">Grocery</h1>
+              <a href="products.html" class="btn btn-primary">View Products
+                </a>
+            </div>
+            <div class="grocery_card col-5 col-lg-3 col-xl-2">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1769017158/cpu_swfqek.png"
+                class="imgg"
+              />
+              <h1 class="img-text mt-1">Electronics</h1>
+              <a href="products.html" class="btn btn-primary">View Products
+                </a>
+            </div>
+            <div class="grocery_card col-5 col-lg-3 col-xl-2">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1769017157/shopping_mfkzc3.png"
+                class="imgg"
+              />
+              <h1 class="img-text mt-1">Fashion</h1>
+              <a href="products.html" class="btn btn-primary">View Products
+                </a>
+            </div>
+            <div class="grocery_card col-5 col-lg-3 col-xl-2">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1769020042/beauty-product_dhqmee.png"
+                class="imgg"
+              />
+              <h1 class="img-text mt-1">Beauty & Care</h1>
+              <a href="products.html" class="btn btn-primary">View Products
+                </a>
+            </div>
+            <div class="grocery_card col-5 col-lg-3 col-xl-2">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1769020041/accesories_sm9k4n.png"
+                class="imgg"
+              />
+              <h1 class="img-text mt-1">Accessories</h1>
+              <a href="products.html" class="btn btn-primary">View Products
+                </a>
+            </div>
+            <div class="grocery_card col-5 col-lg-3 col-xl-2">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1769020346/kitchen-pack_gbhewp.png"
+                class="imgg"
+              />
+              <h1 class="img-text mt-1">Kitchen Items</h1>
+              <a href="products.html" class="btn btn-primary">View Products
+                </a>
+            </div>
+            <div class="grocery_card col-5 col-lg-3 col-xl-2">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1769020419/essential_gmspiq.png"
+                class="imgg"
+              />
+              <h1 class="img-text mt-1">Home Essentials</h1>
+              <a href="products.html" class="btn btn-primary">View Products
+                </a>
+            </div>
+            <div class="grocery_card col-5 col-lg-3 col-xl-2">
+              <img
+                src="https://res.cloudinary.com/djfbxoool/image/upload/v1769020736/ice-cream_xuop8z.png"
+                class="imgg"
+              />
+              <h1 class="img-text mt-1">Ice Cream</h1>
+              <a href="products.html" class="btn btn-primary">View Products
+                </a>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
